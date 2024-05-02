@@ -15,8 +15,8 @@ import { UtilidadService } from 'src/app/Reutilizable/utilidad.service';
 export class LoginComponent implements OnInit {
   
   formularioLogin:FormGroup;
-  ocultarPassword:boolean= true;
-  mostrarLoading:boolean= false;
+  ocultarPassword:boolean = true;
+  mostrarLoading:boolean = false;
   
   constructor(
     private _fb:FormBuilder,
@@ -35,14 +35,14 @@ export class LoginComponent implements OnInit {
 
   iniciarSesion(){
 
-    this.mostrarLoading= true;
-    const request: Login= {
+    this.mostrarLoading = true;
+    const request: Login = {
       correo:this.formularioLogin.value.email,
       clave:this.formularioLogin.value.password
     }
 
     this._usuarioServicio.iniciarSesion(request).subscribe({
-      next:(data)=>{
+      next:(data) => {
         if (data.status){
           this._utilidadServicio.guardarSesionUsuario(data.value);
           this._router.navigate(["pages"]);
